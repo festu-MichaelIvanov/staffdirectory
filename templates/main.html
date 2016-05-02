@@ -1,0 +1,42 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <title>Staff directory</title>
+    <link rel="stylesheet" type="text/css" href="{% static "static/css/foundation.css" %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" />
+</head>
+<body>
+
+<script type="text/javascript" src="{% static "static/js/vendor/jquery.js" %}"></script>
+<script type="text/javascript" src="{% static "static/js/vendor/what-input.js" %}"></script>
+<script type="text/javascript" src="{% static "static/js/vendor/foundation.min.js" %}"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $(document).foundation();
+
+});
+
+</script>
+
+<div class="top-bar">
+
+         {% if username %}
+           <p class="menu-text">Вы вошли, как: {{ username }} (<a href="/authpage/logout/">Выйти</a>) </p>
+         {% else %}
+           <p class="menu-text">Вы не авторизованы:<p>
+         {% endif %}
+
+</div>
+<div class="row">
+    {% block mainpage %}{% endblock %}
+    {% block login %}{% endblock %}
+    {% block authenticated %}{% endblock %}
+    {% block searching %}{% endblock %}
+    {% block result_searching %}{% endblock %}
+</div>
+
+</body>
+</html>

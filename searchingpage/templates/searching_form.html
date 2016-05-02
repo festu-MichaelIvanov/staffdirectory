@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block searching %}
+<form action="search/" method="post">
+
+    {% csrf_token %}
+
+    <label for="worker_name">Имя работника:</label>
+    <input type="text" name="worker_name" id="worker_name">
+
+    <label for="worker_secondname">Фамилия работника:</label>
+    <input type="text" name="worker_secondname" id="worker_secondname">
+
+    <label for="worker_email">Email работника:</label>
+    <input type="text" name="worker_email" id="worker_email">
+
+    <label for="worker_mobile">Телефон работника:</label>
+    <input type="text" name="worker_mobile" id="worker_mobile">
+
+    <label for="worker_post">Должность работника:</label>
+    <input type="text" name="worker_post" id="worker_post">
+
+    <input type="submit" class="button" value="Найти">
+
+</form>
+{% endblock %}

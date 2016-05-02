@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block authenticated %}
+<script>
+
+    window.onload = function () {
+
+        var interval = setInterval(function() {
+
+            if (document.getElementById('timer').innerHTML == 0) {
+
+                    clearInterval(interval);
+                    location = "/mainpage/";
+
+            }
+            else {
+
+                    document.getElementById('timer').innerHTML--;
+
+                }
+        }, 1000);
+
+      }
+
+</script>
+<div class="row">
+<p>Вы уже авторизованы! Перенаправление на главную страницу через: <span id="timer">5</span> сек.</p>
+</div>
+{% endblock %}

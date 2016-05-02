@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block result_searching %}
+<a href="/mainpage/searchingpage/">Назад</a>
+{% if worker_list %}
+{% for worker in worker_list %}
+<ul class="accordion" data-accordion data-allow-all-closed="true" data-multi-expand="true">
+    <li class="accordion-item is-active" data-accordion-item>
+        <a href="#" class="accordion-title">{{worker.WorkerName}} {{worker.WorkerSecondName}}</a>
+        <div class="accordion-content" data-tab-content>
+            <ul>
+                <li>Email: {{worker.WorkerEmail}}</li>
+                <li>Телефон: {{worker.WorkerMobile}}</li>
+                <li>Должность: {{worker.WorkerPost}}</li>
+            </ul>
+        </div>
+    </li>
+</ul>
+{% endfor %}
+{% else %}
+</br>
+<div class="alert callout">
+    <p>Нет данных для отображения.</p>
+</div>
+{% endif %}
+{% endblock %}

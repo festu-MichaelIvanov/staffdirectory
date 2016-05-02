@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block mainpage %}
+{% if worker_list %}
+<p>Выбраны первые 5 записей <a href="/mainpage/searchingpage/">(перейти к поиску)</a>: </p>
+{% for worker in worker_list %}
+                  <ul class="accordion" data-accordion data-allow-all-closed="true" data-multi-expand="true">
+                      <li class="accordion-item is-active" data-accordion-item>
+                          <a href="#" class="accordion-title">{{worker.WorkerName}} {{worker.WorkerSecondName}}</a>
+                          <div class="accordion-content" data-tab-content>
+                              <ul>
+                                  <li>Email: {{worker.WorkerEmail}}</li>
+                                  <li>Телефон: {{worker.WorkerMobile}}</li>
+                                  <li>Должность: {{worker.WorkerPost}}</li>
+                              </ul>
+                          </div>
+                      </li>
+                  </ul>
+{% endfor %}
+        {% else %}
+                 <h1>Нет данных для отображения!</h1>
+        {% endif %}
+{% endblock %}
+
+
